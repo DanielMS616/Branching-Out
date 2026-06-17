@@ -11,11 +11,28 @@ def filter_users_by_name(name):
         print(user)
 
 
+def filter_users_by_age(minimum_age):
+    with open("users.json", "r") as file:
+        users = json.load(file)
+
+    filtered_users = [user for user in users if user["age"] >= minimum_age]
+
+    for user in filtered_users:
+        print(user)
+
+
 if __name__ == "__main__":
-    filter_option = input("What would you like to filter by? (Currently, only 'name' is supported): ").strip().lower()
+    filter_option = input(
+        "What would you like to filter by? ('name' or 'age'): "
+    ).strip().lower()
 
     if filter_option == "name":
         name_to_search = input("Enter a name to filter users: ").strip()
         filter_users_by_name(name_to_search)
+
+    elif filter_option == "age":
+        minimum_age = int(input("Enter minimum age: ").strip())
+        filter_users_by_age(minimum_age)
+
     else:
         print("Filtering by that option is not yet supported.")
