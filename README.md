@@ -11,6 +11,9 @@ It was created to practice Git workflows with branches, fast-forward merges, com
 * Filter users by name
 * Filter users by minimum age
 * Filter users by email
+* Handle invalid user input
+* Show a message if no matching users are found
+* Handle missing or invalid JSON files
 
 ## Project Structure
 
